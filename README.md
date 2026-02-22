@@ -18,13 +18,46 @@
 
 ## 🚀 一键部署命令
 
-请务必使用 **`root` 用户** 登录终端。直接点击代码块右上角的复制按钮，粘贴到终端回车即可运行：
+请务必使用 **root 用户** 登录终端。直接点击下方代码块右上角的复制按钮，粘贴到终端回车即可运行：
 
 ### 模块 A：仅配置【流量每月清零】
+
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/sui-reset.sh](https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/sui-reset.sh))
+```
 
----
 ### 模块 B：仅配置【服务器每日重启】
+
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/reboot.sh](https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/reboot.sh))
+```
+
+> **💡 组合使用提示**：这两个脚本完全独立且互不冲突。你可以依次复制运行这两条命令，将两个自动化功能同时部署到你的服务器上。
+
+---
+
+## 🛠️ 常用检查命令
+
+部署完成后，可使用以下命令核验状态：
+
+- **查看当前已生效的定时任务：**
+  ```bash
+  crontab -l
+  ```
+
+- **查看流量清零执行日志：**
+  ```bash
+  cat /root/s-ui-reset.log
+  ```
+
+- **检查服务器当前时间与时区（确认是否为北京时间）：**
+  ```bash
+  date
+  ```
+
+---
+
+## ⚠️ 注意事项
+
+1. **复制报错处理**：如果在终端粘贴后提示 `-bash: syntax error near unexpected token '('`，说明你复制时误选了网页的超链接格式。请务必**只复制纯文本代码**（推荐直接点击代码框的 Copy 按钮）。
+2. **默认路径说明**：本脚本默认你的 s-ui 面板数据库路径为 `/usr/local/s-ui/db/s-ui.db`。如果你的安装路径非默认，请先 Fork 本仓库，修改 `sui-reset.sh` 首行的 `DB_PATH` 变量后再运行。
