@@ -24,6 +24,7 @@
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/sui-reset.sh](https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/sui-reset.sh))
 
+---
 ### 模块 B：仅配置【服务器每日重启】
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/reboot.sh](https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/reboot.sh))
