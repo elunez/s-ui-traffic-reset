@@ -150,14 +150,6 @@ if ! install_sqlite3; then
     exit 1
 fi
 
-BACKUP_PATH="${DB_PATH}.bak_$(date +%Y%m%d%H%M%S)"
-if cp "$DB_PATH" "$BACKUP_PATH"; then
-    log "[✓] 数据库已备份: $BACKUP_PATH"
-else
-    log "[x] 数据库备份失败: $BACKUP_PATH"
-    exit 1
-fi
-
 SQL_OUTPUT=$(sqlite3 "$DB_PATH" <<'SQL_EOF' 2>&1
 BEGIN TRANSACTION;
 UPDATE clients SET up = 0, down = 0;
@@ -199,12 +191,4 @@ else
     echo "[✓] 定时任务添加成功 (每月1号0点执行)。"
 fi
 
-# 立即执行一次测试
-if /bin/bash "$SCRIPT_PATH"; then
-    tail -n 10 "$LOG_PATH"
-    echo "配置彻底完成！"
-else
-    tail -n 20 "$LOG_PATH"
-    echo "[x] 立即执行测试失败，请根据上方日志处理后重试。"
-    exit 1
-fi
+echo "[✓] 配置完成！定时任务将在每月1号0点执行重置。"
