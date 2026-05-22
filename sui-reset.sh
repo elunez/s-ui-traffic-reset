@@ -81,7 +81,7 @@ DB_PATH="/usr/local/s-ui/db/s-ui.db"
 LOG_PATH="/root/s-ui-reset.log"
 
 log() {
-    echo "$1" >> "$LOG_PATH"
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_PATH"
 }
 
 run_with_log() {
@@ -139,7 +139,7 @@ restart_s_ui() {
 }
 
 log "=========================================="
-log "执行 s-ui 流量重置任务 - $(date +'%Y-%m-%d %H:%M:%S')"
+log "开始执行流量重置任务"
 
 if [ ! -f "$DB_PATH" ]; then
     log "[x] 未找到数据库: $DB_PATH，任务终止。"
