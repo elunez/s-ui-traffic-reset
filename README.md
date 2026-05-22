@@ -23,13 +23,13 @@
 ### 模块 A：仅配置【流量每月清零】
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/sui-reset.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/elunez/s-ui-traffic-reset/main/sui-reset.sh)
 ```
 
 ### 模块 B：仅配置【服务器每日重启】
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/zqh2333/s-ui-traffic-reset/main/reboot.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/elunez/s-ui-traffic-reset/main/reboot.sh)
 ```
 
 > **💡 组合使用提示**：这两个脚本完全独立且互不冲突。你可以依次复制运行这两条命令，将两个自动化功能同时部署到你的服务器上。
